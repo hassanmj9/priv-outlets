@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hassanmj9.github.io/priv-outlets/sitemap.xml
