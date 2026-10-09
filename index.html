@@ -5,7 +5,7 @@
 <link rel="canonical" href="https://privoutlets.com.br/">
 <meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Priv Outlets">
 <meta property="og:title" content="Priv Outlets · Prada, Miu Miu e perfumes originais">
-<meta property="og:description" content="Até 30% abaixo da vitrine. Originais, novos e com nota fiscal. Inauguração das vendas online sexta, 9/10, às 14h.">
+<meta property="og:description" content="Até 30% abaixo da vitrine. Originais, novos e com nota fiscal. Inauguração das vendas online domingo, 11/10, às 17h.">
 <meta property="og:url" content="https://privoutlets.com.br/"><meta property="og:image" content="https://privoutlets.com.br/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +59,7 @@ input,select{font:inherit;color:inherit}
 .cd b{font-size:15px;font-weight:600;letter-spacing:.02em}
 .cd i{font-style:normal;font-size:9.5px;opacity:.85;letter-spacing:.08em}
 .launch .l-a{font-weight:600;border-bottom:1px solid #fff;padding-bottom:1px}
+.launch .nw{display:inline-block;white-space:nowrap}
 @media (max-width:760px){.launch{font-size:10px;letter-spacing:.12em}.launch .wrap{padding-block:9px}.cd b{font-size:14px}}
 .prelaunch{font-size:12.5px;color:var(--ink-2);background:var(--band);padding:12px 14px;line-height:1.55}
 .prelaunch b{color:var(--rosso)}
@@ -404,7 +405,7 @@ footer.site .legal{border-top:1px solid #2A2A2A;margin-top:44px;padding-top:20px
 <script>
 /* CONFIGURAÇÃO DA LOJA: preencha aqui (é o único lugar que precisa mudar) */
 window.PRIV_CFG = {
-  abertura: "2026-10-09T14:00:00-03:00",   /* início das vendas online (horário de Brasília) */
+  abertura: "2026-10-11T17:00:00-03:00",   /* início das vendas online (horário de Brasília) */
   whatsapp: "",                            /* só números, com 55 + DDD. Ex.: 5511999999999 */
   email: "",                               /* ex.: contato@privoutlets.com.br */
   razao: "Maniz Home Importação e Exportação Ltda.", /* razão social da empresa */
@@ -413,7 +414,7 @@ window.PRIV_CFG = {
   reservaHoras: 2                          /* tempo que a peça fica reservada esperando o pagamento */
 };
 </script>
-<div class="launch" id="launch" hidden><div class="wrap"><span class="l-t"><b>Inauguração</b><span id="lText">Início das vendas online: sexta-feira, 9 de outubro, às 14h</span></span><span class="cd" id="lCount" aria-hidden="true"></span><a class="l-a" id="lLink" href="#prada" hidden>Ver peças</a></div></div>
+<div class="launch" id="launch" hidden><div class="wrap"><span class="l-t"><b>Inauguração</b><span id="lText"><span class="nw">Início das vendas online:</span> <span class="nw">domingo, 11 de outubro, às 17h</span></span></span><span class="cd" id="lCount" aria-hidden="true"></span><a class="l-a" id="lLink" href="#prada" hidden>Ver peças</a></div></div>
 <div class="promo"><span>Até 30% abaixo da vitrine</span><span>Originais com nota fiscal</span><span>Envio com seguro para todo o Brasil</span></div>
 <header class="site" id="top">
   <div class="hbar">
@@ -561,7 +562,7 @@ window.PRIV_CFG = {
 <script>
 (function(){
 "use strict";
-const CFG = Object.assign({abertura:"2026-10-09T14:00:00-03:00", whatsapp:"", email:"", razao:"", cnpj:"", endereco:"São Paulo, SP", reservaHoras:2}, window.PRIV_CFG || {});
+const CFG = Object.assign({abertura:"2026-10-11T17:00:00-03:00", whatsapp:"", email:"", razao:"", cnpj:"", endereco:"São Paulo, SP", reservaHoras:2}, window.PRIV_CFG || {});
 const OPEN_AT = new Date(CFG.abertura).getTime();
 const isOpen = () => Date.now() >= OPEN_AT;
 const WA = String(CFG.whatsapp || "").replace(/\D/g, "");
@@ -1103,7 +1104,7 @@ function tickLaunch(){
   if(left > 0){
     bar.hidden = false;
     const s = Math.floor(left / 1000), dd = Math.floor(s / 86400), hh = Math.floor(s % 86400 / 3600), mm = Math.floor(s % 3600 / 60), ss = s % 60, p2 = n => String(n).padStart(2, "0");
-    $("#lText").textContent = `Início das vendas online: ${OPEN_TXT.dia}, às ${OPEN_TXT.hr}`;
+    $("#lText").innerHTML = `<span class="nw">Início das vendas online:</span> <span class="nw">${OPEN_TXT.dia}, às ${OPEN_TXT.hr}</span>`;
     $("#lCount").innerHTML = (dd ? `<span><b>${dd}</b><i>d</i></span>` : "") + `<span><b>${p2(hh)}</b><i>h</i></span><span><b>${p2(mm)}</b><i>min</i></span><span><b>${p2(ss)}</b><i>s</i></span>`;
     bar.setAttribute("aria-label", `Inauguração: vendas online a partir de ${OPEN_TXT.dia}, às ${OPEN_TXT.hr}`);
   } else if(now - OPEN_AT < 7 * 86400000){
