@@ -3,7 +3,7 @@
 <meta name="theme-color" content="#111111">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="robots" content="index,follow,max-image-preview:large">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "OnlineStore", "@id": "https://privoutlets.com.br/#org", "name": "Priv Outlets", "legalName": "Maniz Home Importação e Exportação Ltda.", "url": "https://privoutlets.com.br/", "logo": "https://privoutlets.com.br/logo.png", "image": "https://privoutlets.com.br/og.jpg", "description": "Outlet de grife online: Prada, Miu Miu e perfumes importados originais e novos, com preço de outlet e envio com seguro para todo o Brasil.", "taxID": "22.991.051/0001-65", "address": {"@type": "PostalAddress", "streetAddress": "Rua Pedroso Alvarenga, 691, cj. 1002", "addressLocality": "São Paulo", "addressRegion": "SP", "postalCode": "04531-011", "addressCountry": "BR"}, "areaServed": "BR", "sameAs": ["https://www.instagram.com/privoutlets/", "https://www.facebook.com/privoutlets"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://privoutlets.com.br/#site", "name": "Priv Outlets", "url": "https://privoutlets.com.br/", "inLanguage": "pt-BR", "publisher": {"@id": "https://privoutlets.com.br/#org"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "OnlineStore", "@id": "https://privoutlets.com.br/#org", "name": "Priv Outlets", "legalName": "Maniz Home Importação e Exportação Ltda.", "url": "https://privoutlets.com.br/", "logo": "https://privoutlets.com.br/logo.png", "image": "https://privoutlets.com.br/og.jpg", "description": "Outlet de grife online: Prada, Miu Miu e perfumes importados originais e novos, com preço de outlet e envio com seguro para todo o Brasil.", "taxID": "22.991.051/0001-65", "address": {"@type": "PostalAddress", "streetAddress": "Rua Pedroso Alvarenga, 691, cj. 1002", "addressLocality": "São Paulo", "addressRegion": "SP", "postalCode": "04531-011", "addressCountry": "BR"}, "areaServed": "BR", "telephone": "+55 11 99330-3917", "sameAs": ["https://www.instagram.com/privoutlets/", "https://www.facebook.com/privoutlets"]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "@id": "https://privoutlets.com.br/#site", "name": "Priv Outlets", "url": "https://privoutlets.com.br/", "inLanguage": "pt-BR", "publisher": {"@id": "https://privoutlets.com.br/#org"}}</script>
 <link rel="canonical" href="https://privoutlets.com.br/">
 <meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Priv Outlets">
 <meta property="og:title" content="Outlet Prada e perfumes importados originais | Priv Outlets">
@@ -408,13 +408,13 @@ header.site.scrolled .brand svg.logo{height:clamp(38px,3.6vw,48px)}
 footer.site .brand svg.logo{height:64px;color:#fff}
 .co-top .brand svg.logo{height:44px}
 footer.site .seocat{border-top:1px solid #2A2A2A;margin-top:36px;padding-top:22px;font-size:12.5px;line-height:1.9;color:#8A8A8A}footer.site .seocat h4{margin-bottom:6px}footer.site .seocat p{max-width:none;margin:6px 0 0;font-size:12.5px}footer.site .seocat a{color:#BDBDBD}footer.site .seocat a:hover{color:#fff}
-</style></head><body>
+.walink{display:block;text-align:center;margin-top:16px;font-size:14px;font-weight:600;letter-spacing:.06em;color:#0E7A43;text-decoration:underline;text-underline-offset:4px}</style></head><body>
 
 <script>
 /* CONFIGURAÇÃO DA LOJA: preencha aqui (é o único lugar que precisa mudar) */
 window.PRIV_CFG = {
   abertura: "2026-10-11T17:00:00-03:00",   /* início das vendas online (horário de Brasília) */
-  whatsapp: "",                            /* só números, com 55 + DDD. Ex.: 5511999999999 */
+  whatsapp: "5511993303917",                            /* só números, com 55 + DDD. Ex.: 5511999999999 */
   instagram: "privoutlets",                /* @ do Instagram: recebe os pedidos enquanto o WhatsApp estiver vazio */
   email: "",                               /* ex.: contato@privoutlets.com.br */
   razao: "Maniz Home Importação e Exportação Ltda.", /* razão social da empresa */
@@ -900,7 +900,7 @@ function renderPdp(){
     <div class="info">
       <div><span class="eyebrow">${esc(eyebrow)}</span><h1>${esc(p.name)}</h1><p class="clr">${esc(p.color)}</p></div>
       <div>${priceHTML(p)}${why}</div>${colNote}${opt}
-      <div class="acts"><button class="btn block" data-add ${canAdd ? "" : "disabled"}>Adicionar à sacola</button>${isOpen() ? `<button class="btn ghost block" data-buy ${canAdd ? "" : "disabled"}>Comprar agora</button>` : `<p class="prelaunch"><b>Vendas a partir de ${OPEN_TXT.dia}, às ${OPEN_TXT.hr}.</b> Você já pode separar a peça na sacola; ela fica reservada quando o pedido é enviado.</p>`}</div>
+      <div class="acts"><button class="btn block" data-add ${canAdd ? "" : "disabled"}>Adicionar à sacola</button>${isOpen() ? `<button class="btn ghost block" data-buy ${canAdd ? "" : "disabled"}>Comprar agora</button>` : `<p class="prelaunch"><b>Vendas a partir de ${OPEN_TXT.dia}, às ${OPEN_TXT.hr}.</b> Você já pode separar a peça na sacola; ela fica reservada quando o pedido é enviado.</p>`}</div>${WA ? `<a class="walink" href="${waLink(`Olá! Tenho interesse em: ${p.name} (${p.brand}, ${p.color}). ${location.origin}/#p/${p.id}`)}" target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a>` : ""}
       <div class="authrow"><img src="${SEAL}" alt=""><div><b>Autenticidade garantida</b><span>Original, ${p.kind === "perf" ? "lacrado" : "nova, com etiqueta"} e com nota fiscal no seu nome.</span></div></div>
       <div><details class="acc" open><summary>Detalhes</summary>${spec}</details>
       <details class="acc"><summary>Procedência</summary><p>Estoque arrematado em leilão da Receita Federal, com documentação de origem que comprova a autenticidade. Toda compra sai com nota fiscal.</p></details>
