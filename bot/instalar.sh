@@ -80,10 +80,13 @@ elif [ -n "$SECRET_ARG" ] && ! grep -q '^HOOK_SECRET=' "$DEST/.env"; then
 fi
 
 say "5/7 Teste da versão nova (porta $TEST_PORT)"
-( cd "$DEST" && PORT=$TEST_PORT DATA_DIR="$TMPD/data" "$NODE" src/server.js > "$TMPD/teste.log" 2>&1 & echo $! > "$TMPD/pid" )
+livre() { kill $(ss -ltnpH "sport = :$1" 2>/dev/null | grep -o 'pid=[0-9]*' | cut -d= -f2) 2>/dev/null || true; }
+livre "$TEST_PORT"; sleep 1
+( cd "$DEST" && PORT=$TEST_PORT DATA_DIR="$TMPD/data" exec "$NODE" src/server.js > "$TMPD/teste.log" 2>&1 ) &
+echo $! > "$TMPD/pid"
 H=""
 for i in $(seq 1 20); do sleep 1; H="$(curl -fsS "http://127.0.0.1:$TEST_PORT/health" 2>/dev/null || true)"; echo "$H" | grep -q '"versao":4' && break; done
-kill "$(cat "$TMPD/pid")" 2>/dev/null || true
+kill "$(cat "$TMPD/pid")" 2>/dev/null || true; sleep 1; livre "$TEST_PORT"
 echo "$H" | grep -q '"versao":4' || { cat "$TMPD/teste.log"; die "a versão nova não subiu no teste; o bot antigo continua ativo, nada foi trocado"; }
 echo "$H"
 echo "$H" | grep -q '"chatwoot":true' || die "token do robô do Chatwoot não encontrado. Coloque CHATWOOT_BOT_TOKEN=... em $DEST/.env e rode de novo. Nada foi trocado."
